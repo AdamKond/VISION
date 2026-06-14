@@ -14,6 +14,11 @@ const A_W    = 594;  const A_H = 1020; const A_X = 432; const A_Y = 300;
 const RADIUS = 50;
 const SHADOW = "0 28px 80px rgba(0,0,0,0.20), 0 6px 18px rgba(0,0,0,0.10)";
 
+// Cena pod "After" (styl "listed at $...") — zmień tu, by zaktualizować napis
+const PRICE       = "774 000 zł";
+const PRICE_LABEL = "wystawione za";
+const GOLD        = "#F4C81E";
+
 const pairs = [
   { beforeImg: staticFile("before-b09.jpg"), afterVid: staticFile("after-vid-korytarz.mp4")         },
   { beforeImg: staticFile("before-b01.jpg"), afterVid: staticFile("after-vid-salon.mp4")            },
@@ -91,6 +96,30 @@ const PairSlide: React.FC<{ pair: typeof pairs[0] }> = ({ pair }) => {
           muted
         />
         <LightSweep localFrame={f} />
+
+        {/* Cena — nakładka na dole After (styl "listed at $...") */}
+        <div style={{
+          position: "absolute", left: 0, right: 0, bottom: 0,
+          paddingTop: 150, paddingBottom: 48, textAlign: "center",
+          background:
+            "linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.28) 45%, transparent 100%)",
+          opacity,
+          transform: `translateY(${interpolate(f, [10, 26], [24, 0], {
+            easing: Easing.out(Easing.cubic),
+            extrapolateLeft: "clamp", extrapolateRight: "clamp",
+          })}px)`,
+        }}>
+          <div style={{
+            fontFamily: "sans-serif", fontWeight: 700, fontSize: 40,
+            color: "#fff", letterSpacing: 1, lineHeight: 1,
+            textShadow: "0 2px 10px rgba(0,0,0,0.45)", marginBottom: 10,
+          }}>{PRICE_LABEL}</div>
+          <div style={{
+            fontFamily: "sans-serif", fontWeight: 900, fontSize: 92,
+            color: GOLD, letterSpacing: -1, lineHeight: 1,
+            textShadow: "0 3px 16px rgba(0,0,0,0.55)",
+          }}>{PRICE}</div>
+        </div>
       </div>
     </>
   );
