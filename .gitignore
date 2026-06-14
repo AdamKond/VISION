@@ -1,0 +1,16 @@
+# Zależności (instalowane lokalnie na każdej maszynie — NIE synchronizować)
+node_modules/
+
+# Remotion / build
+out/
+build/
+.cache/
+
+# Pliki systemowe
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Tymczasowe
+*.tmp
+*.log
