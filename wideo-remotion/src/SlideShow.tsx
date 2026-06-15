@@ -17,7 +17,7 @@ const SHADOW = "0 28px 80px rgba(0,0,0,0.20), 0 6px 18px rgba(0,0,0,0.10)";
 // Cena pod "After" (styl "listed at $...") — zmień tu, by zaktualizować napis
 const PRICE       = "774 000 zł";
 const PRICE_LABEL = "wystawione za";
-const GOLD        = "#F4C81E";
+const GOLD        = "#F5C518";
 
 const pairs = [
   { beforeImg: staticFile("before-b09.jpg"), afterVid: staticFile("after-vid-korytarz.mp4")         },
@@ -100,24 +100,28 @@ const PairSlide: React.FC<{ pair: typeof pairs[0] }> = ({ pair }) => {
         {/* Cena — nakładka na dole After (styl "listed at $...") */}
         <div style={{
           position: "absolute", left: 0, right: 0, bottom: 0,
-          paddingTop: 150, paddingBottom: 48, textAlign: "center",
+          paddingTop: 170, paddingBottom: 60, textAlign: "center",
           background:
-            "linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.28) 45%, transparent 100%)",
+            "linear-gradient(to top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.16) 50%, transparent 100%)",
           opacity,
-          transform: `translateY(${interpolate(f, [10, 26], [24, 0], {
+          transform: `translateY(${interpolate(f, [10, 28], [26, 0], {
             easing: Easing.out(Easing.cubic),
             extrapolateLeft: "clamp", extrapolateRight: "clamp",
           })}px)`,
         }}>
           <div style={{
-            fontFamily: "sans-serif", fontWeight: 700, fontSize: 40,
-            color: "#fff", letterSpacing: 1, lineHeight: 1,
-            textShadow: "0 2px 10px rgba(0,0,0,0.45)", marginBottom: 10,
+            fontFamily: "sans-serif", fontWeight: 800, fontSize: 44,
+            color: "#fff", letterSpacing: 0.5, lineHeight: 1,
+            textShadow: "0 2px 14px rgba(0,0,0,0.55)", marginBottom: 6,
           }}>{PRICE_LABEL}</div>
           <div style={{
-            fontFamily: "sans-serif", fontWeight: 900, fontSize: 92,
-            color: GOLD, letterSpacing: -1, lineHeight: 1,
-            textShadow: "0 3px 16px rgba(0,0,0,0.55)",
+            fontFamily: "sans-serif", fontWeight: 900, fontSize: 104,
+            color: GOLD, letterSpacing: -3, lineHeight: 1,
+            textShadow: "0 3px 18px rgba(0,0,0,0.60)",
+            transform: `scale(${interpolate(f, [10, 30], [0.9, 1], {
+              easing: Easing.out(Easing.cubic),
+              extrapolateLeft: "clamp", extrapolateRight: "clamp",
+            })})`,
           }}>{PRICE}</div>
         </div>
       </div>

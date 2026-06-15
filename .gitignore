@@ -14,3 +14,6 @@ desktop.ini
 # Tymczasowe
 *.tmp
 *.log
+
+# Kopie zapasowe oryginalnych klipów (przed stabilizacją)
+_orig/
